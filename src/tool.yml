@@ -1,25 +1,26 @@
 tools:
-  foobar:
-    title: Foo Bar
-    description: A dummy tool to exemplify the YAML file
-    version: 0.1
+  cucurve:
+    title: Complexity - Uncertainty Curve
+    description: |
+      The c-u-curve method can be used to analyse, classify and compare dynamical systems of arbitrary dimension by the two key features uncertainty and complexity.
+      The method is applicable to uni- and multivariate data sets, and accepts both deterministic and probabilistic value representations.
+      For detail information see the related publication by Ehret and Dey (2022):
+      Ehret, U., and P. Dey (2022), Technical note: c-u-curve: A method to analyse, classify and compare dynamical systems by uncertainty and complexity, Hydrol. Earth Syst. Sci. Discuss., 2022, 1-12.
+    version: 1.0
     parameters:
-      foo_int: 
+      data:
+        type: file
+        description: Accepts uni- or multivariate matrices as flat .mat files.
+      n_value_bins:
         type: integer
-      foo_float:
-        type: float
-      foo_string:
-        type: string
-      foo_enum:
-        type: enum
-        values:
-          - foo
-          - bar
-          - baz
-      foo_array:
+        description: [1,ndim] array with number of equal-size bins for the value range of the data values of each variable
+      n_entropy_bins:
+        type: integer
+        description: number of equal-size bins for the value range of entropies
+      slice_widths:
         type: integer
         array: true
-      foo_matrix:
-        type: file
-      foo_csv:
-        type: file
+        description: |
+          array with all time slice widths to be examined
+          size is [nss,1], with nss being total number of time slicing schemes to be examined
+          order is ascending, minimum possible value is 1, maximum possible value is length of dataset

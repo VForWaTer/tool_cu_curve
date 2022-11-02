@@ -1,11 +1,8 @@
 {
-    "foobar": {
-        "foo_int": 42,
-        "foo_float": 13.37,
-        "foo_string": "Never eat yellow snow",
-        "foo_enum": "bar",
-        "foo_array": [34, 55, 23, 43, 23],
-        "foo_matrix": "/in/foo_matrix.mat",
-        "foo_csv": "/in/foo_csv.csv"
+    "cucurve": {
+        "data": "/in/data.mat",
+        "n_value_bins": 10,
+        "n_entropy_bins": 15,
+        "slice_widths": [1, 2, 4, 16, 25, 100, 200, 400, 500, 1000]
     }
 }
