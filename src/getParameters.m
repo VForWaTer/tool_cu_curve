@@ -43,7 +43,7 @@ function params = getParameters()
         % switch the different types
         if strcmp(paramconf.type, 'file')
             % this is really, really stupid...
-            if strncmp(flip(paramval), flip('.mat'), 4)  % <- startsWith
+            if strncmp(flip(paramval), flip('.dat'), 4)  % <- startsWith
                 loaded_val = load(paramval);
             elseif strncmp(flip(paramval), flip('.csv'), 4)
                 loaded_val = csvread(paramval);
