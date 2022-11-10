@@ -10,7 +10,7 @@ tools:
     parameters:
       data:
         type: file
-        description: Accepts uni- or multivariate matrices as flat .mat files.
+        description: Accepts uni- or multivariate matrices as flat .dat files.
       n_value_bins:
         type: integer
         description: [1,ndim] array with number of equal-size bins for the value range of the data values of each variable
