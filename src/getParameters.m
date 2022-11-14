@@ -3,7 +3,7 @@ function params = getParameters()
     % get the param file environement variable
     PARAM_FILE = getenv('PARAM_FILE');
     if isempty(PARAM_FILE)
-        PARAM_FILE = '/in/tool.json';
+        PARAM_FILE = '/in/parameters.json';
     endif
 
     % read the file content as JSON
