@@ -1,4 +1,4 @@
-# tool_template_ocatave
+# tool_template_octave
 
 This is the template for a generic containerized Octave/Matlab tool. This template can be used to generate new Github repositories from it.
 
@@ -16,7 +16,7 @@ Each container needs at least the following structure:
 ```
 /
 |- in/
-|  |- tool.json
+|  |- parameters.json
 |- out/
 |  |- ...
 |- src/
@@ -25,8 +25,8 @@ Each container needs at least the following structure:
 |  |- run.m
 ```
 
-* `tool.json` are parameters. Whichever framework runs the container, this is how parameters are passed.
-* `getParameters.m` is a utility function to parse the `tool.json` including pre-loading of data files and returns a `struct`.
+* `parameters.json` are parameters. Whichever framework runs the container, this is how parameters are passed.
+* `getParameters.m` is a utility function to parse the `parameters.json` including pre-loading of data files and returns a `struct`.
 * `tool.yml` is the tool specification. It contains metadata about the scope of the tool, the number of endpoints (functions) and their parameters
 * `run.m` is the tool itself, or a Octave/Matlab script that handles the execution. It has to capture all outputs and either `print` them to console or create files in `/out`
 
@@ -51,9 +51,9 @@ in the repository secrets in order to run properly.
 
 ## How to run?
 
-This template installs the toolbox-runner python package to parse the parameters in the `/in/tool.json`. This assumes that
+This template uses `/src/getParameters.m` to parse the parameters in the `/in/parameters.json`. This assumes that
 the files are not renamed and not moved and there is actually only one tool in the container. For any other case, the environment variables
-`PARAM_FILE` can be used to specify a new location for the `tool.json` and `TOOL_RUN` can be used to specify the tool to be executed.
+`PARAM_FILE` can be used to specify a new location for the `parameters.json` and `TOOL_RUN` can be used to specify the tool to be executed.
 The `run.R` has to take care of that.
 
 To invoke the docker container directly run something similar to:
